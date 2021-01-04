@@ -1,7 +1,5 @@
-docker-hello-world
-==================
-
-[![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
+docker-hello-world-rebuild
+==========================
 
 Sample docker image to test docker deployments
 
@@ -9,13 +7,13 @@ Sample docker image to test docker deployments
 Usage
 -----
 
-To create the image `noahjs/hello-world-81`, execute the following command on the docker-hello-world folder:
+To create the image `sandisunandar99/hello-world-rebuild`, execute the following command on the docker-hello-world folder:
 
-	docker build -t noahjs/hello-world-81 .
+	docker build -t sandisunandar99/hello-world-rebuild .
 
 You can now push your new image to the registry:
 
-	sudo docker push noahjs/hello-world-81
+	sudo docker push sandisunandar99/hello-world-rebuild
 
 
 Running your Hello World docker image
@@ -23,7 +21,7 @@ Running your Hello World docker image
 
 Start your image:
 
-	sudo docker run -d -p 80 noahjs/hello-world-81
+	sudo docker run -d -p 80 sandisunandar99/hello-world-rebuild
 
 It will print the new container ID (like `d35bf1374e88`). Get the allocated external port:
 
