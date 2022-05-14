@@ -49,9 +49,9 @@
 	<?php
 	}
 
-	if($_ENV["TUTUM_AUTH"]) {
+	if($_ENV["TechVerito_AUTH"]) {
 		?>
-		<h3>I have Tutum API powers!</h3>
+		<h3>I have TechVerito API powers!</h3>
 		<?php
 	}
 	?>
