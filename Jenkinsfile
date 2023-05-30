@@ -3,7 +3,6 @@ node {
      stage('Clone repository') {
         checkout scm
     }
-
     stage('Build image') {
         app = docker.build("sambhaji24/nodejsapp")
     }
