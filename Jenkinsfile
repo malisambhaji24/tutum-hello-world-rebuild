@@ -1,31 +1,16 @@
-pipeline {
-  agent any
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
-  environment {
-    DOCKERHUB_CREDENTIALS = credentials('docker-hub-credentials')
-  }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'docker build -t sambhaji24/nodejsapp_kiran .'
-      }
+node {
+    def app
+     stage('Clone repository') {
+        checkout scm
     }
-    stage('Login') {
-      steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-      }
+    stage('Build image') {
+        app = docker.build("sambhaji24/nodejsapp_kiran")
     }
-    stage('Push') {
-      steps {
-        sh 'docker push sambhaji24/nodejsapp_kiran'
-      }
+
+    stage('Push image') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+        }
     }
-  }
-  post {
-    always {
-      sh 'docker logout'
-    }
-  }
 }
