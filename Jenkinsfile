@@ -4,7 +4,7 @@ node {
         checkout scm
     }
     stage('Build image') {
-        app = docker.build("sambhaji24/nodejsapp")
+        app = docker.build("sambhaji24/nodejsapp_kiran")
     }
 
     stage('Push image') {
